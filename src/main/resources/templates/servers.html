@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Servers page</title>
+    <link th:href="@{/css/server.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{/js/server.js}"></script>
+    <!--<script src="jquery-3.5.1.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>-->
+</head>
+<body>
+<h3>Servers</h3>
+<div id="server-add-div">
+    <p>Add new server</p>
+    <div>
+    <label for="add-server-name" style="padding-right: 30px; padding-left:25px">Name: </label>
+    <input type="text" id='add-server-name' />
+    <br>
+    <label for="add-server-hostname" style="padding-right: 30px; padding-left:25px">Hostname: </label>
+    <input type="text" id='add-server-hostname'/>
+    <br>
+    <label for="add-server-ipaddress" style="padding-right: 30px; padding-left:25px">IP address: </label>
+    <input type="text" id='add-server-ipaddress'/>
+    <br>
+    <label for="add-server-webURL" style="padding-right: 30px; padding-left:25px">Web URL: </label>
+    <input type="text" id='add-server-webURL'/>
+    <br>
+        <div style="padding-left: 150px; padding-top: 15px">
+            <button onclick="addServer2(), addRow()">Save</button>
+        </div>
+    </div>
+</div>
+
+<br>
+<div id="server-list-div">
+    <p>Servers added</p>
+    <table id="table-server">
+        <tr class="bold">
+            <td>Name</td>
+            <td>Hostname</td>
+            <td>IP Address</td>
+            <td>Web URL</td>
+        </tr>
+        <tr th:each="it: ${serverDtoList}">
+            <td th:text="${it.name}">a</td>
+            <td th:text="${it.hostName}">b</td>
+            <td th:text="${it.ipAddress}">c</td>
+            <td th:text="${it.webURL}">d</td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>

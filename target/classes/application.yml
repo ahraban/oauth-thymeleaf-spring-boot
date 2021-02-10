@@ -1,0 +1,18 @@
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          bc-provider:
+            authorization-uri: https://portal.bcas.cz:3444
+            token-uri: https://portal.bcas.cz:3444/oa2/token.do
+            user-info-uri: https://portal.bcas.cz:3444/oa2/resources/profile/v2.do
+            userNameAttribute: user_name
+        registration:
+          bc:
+            client-id: newdevtest
+            client-secret:  maxDbkNd7V6926ucr953
+            ##redirect-uri:   http://localhost:8080/servers
+            redirect-uri:   http://localhost:8080/login/oauth2/code/bc
+            authorization-grant-type: authorization_code
+            provider: bc-provider
